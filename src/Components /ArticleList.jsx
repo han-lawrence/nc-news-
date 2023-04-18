@@ -12,7 +12,6 @@ useEffect(() => {
   setIsLoading(true);
   fetchArticles().then(({ articles }) => {
     setArticles(articles);
-    console.log(articles)
     setIsLoading(false);
   }).catch((error) => {console.log(error)})
 }, []);
@@ -23,8 +22,9 @@ return (
       return (
 				<Link to={`/articles/${article.article_id}`}>
 					<section className="article-card" key={article.article_id}>
-						<h2>{article.title}</h2>
-
+						<h1>{article.title}</h1>
+						<h2>{article.author}</h2>
+						<h2>{article.created_at}</h2>
 						<img src={article.article_img_url} alt={`${article.title}`} />
 					</section>
 				</Link>

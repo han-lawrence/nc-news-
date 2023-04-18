@@ -11,13 +11,17 @@ useEffect(() => {
     setSingleArticle(data.article)
   })
 }, []);
+console.log(singleArticle)
 
 return (
-  <div>
-    <h1>{singleArticle.title}</h1>
-    
-  </div>
-)
+	<div>
+		<h1>{singleArticle.topic}</h1>
 
+		<h1>{singleArticle.title}</h1>
+		<h2>{singleArticle.author}</h2>
+		<h2>{singleArticle.body}</h2>
+	</div>
+  
+);
 
 }
