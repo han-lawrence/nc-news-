@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import * as api from "../api.js";
+import CommentsList from "./ArchiveCommentsList.jsx";
 
 export default function SingleArticle() {
   const {article_id} = useParams();
@@ -20,8 +21,8 @@ return (
 		<h1>{singleArticle.title}</h1>
 		<h2>{singleArticle.author}</h2>
 		<h2>{singleArticle.body}</h2>
+		<CommentsList articleId={article_id} />
 	</div>
-  
 );
 
 }
