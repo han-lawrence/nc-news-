@@ -9,15 +9,27 @@ import { dateFormatter } from './utils';
 export default function ArticleList() {
 	const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState (true)
- 
+  const [isError, setIsError] = useState(false);
 
 useEffect(() => {
   setIsLoading(true);
-  fetchArticles().then(({ articles }) => {
-    setArticles(articles);
-    setIsLoading(false);
-  }).catch((error) => {console.log(error)})
+  fetchArticles()
+		.then(({ articles }) => {
+			setArticles(articles);
+		})
+		.catch((err) => {
+			setIsError(true);
+		})
+		.finally(() => {
+			setIsLoading(false);
+		});
+
 }, []);
+
+if (isLoading) return <p className="loading">Loading...</p>;
+
+if (isError) return <p> something went wrong, please try again later ...</p>;
+
 
 return (
   <main className="articles">
