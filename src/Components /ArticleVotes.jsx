@@ -14,8 +14,7 @@ export default function ArticleRating ({ articleId, articleVotes }){
       api.incrementArticleVotes(articleId, incVotes)
         .then()
         .catch((err) => {
-          console.error('vote failed, please try again later.');
-          
+          console.error('vote failed, please try again later');
           setVotes(articleVotes);
         });
     }

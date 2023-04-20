@@ -32,11 +32,11 @@ if (isError) return <p> something went wrong, please try again later ...</p>;
 
 
 return (
-  <main className="articles">
-    {articles.map((article) => {
-      return (
-				<Link to={`/articles/${article.article_id}`}>
-					<section className="article-card" key={article.article_id}>
+	<main className="articles">
+		{articles.map((article) => {
+			return (
+				<Link key={article.article_id} to={`/articles/${article.article_id}`}>
+					<section className="article-card">
 						<h1>{article.title}</h1>
 						<h2>{article.author}</h2>
 						<h2>{dateFormatter(article.created_at)}</h2>
@@ -44,8 +44,9 @@ return (
 					</section>
 				</Link>
 			);
-    })}
-  </main>
+		})}
+	</main>
 );
+
 
   }
